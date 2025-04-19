@@ -23,6 +23,16 @@
     width: 80%;
     margin: 20px auto;
 }
+/* removed .hand .score because the layout would get
+messed up with the addition of more cards, causing an overlap (due to absolute position).
+With hand-compressor and score, this will help to prevent overlap with the UI
+*/
+.hand-compresser{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
 
 .hand {
     display: flex;
@@ -30,18 +40,16 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    
 }
 
-.hand .score {
-    position: absolute;
-    left: 65%;
-    transform: translateX(-50%);
+.score {
     font-size: 16px;
     font-weight: bold;
     background-color: #fff;
-    padding: 5px 10px;
+    padding: 5px 10px
     border: 1px solid #000;
-    border-radius: 5px;
+    border-radius:5px;
 }
 
 .card {
