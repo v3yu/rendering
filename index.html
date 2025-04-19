@@ -4,25 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playing Card Widget</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/Layout/Layout.css">
+    <link rel="stylesheet" href="css/Style/Style.css">
 </head>
 <body>
     <div id ="game-board">
-        <div id="deck_area">
+        <div id="deck-area">
             <div class = "deck" id = "deck"></div>
         </div>
 
         <div id = "hand-area">
             <div id="dealer-hand" class="hand">
-                <div class="score" id="dealer-score">Dealer: 0</div>
                 <div class="card" id="dealer-card-1"></div>
                 <div class="card" id="dealer-card-2"></div>
+
             </div>
             <div id="player-hand" class="hand">
-                <div class="score" id="player-score">Player: 0</div>
                 <div class="card" id="player-card-1"></div>
                 <div class="card" id="player-card-2"></div>
             </div>
+        </div>
+        <div class = "score-area">
+            <div class="score" id="dealer-score">Dealer: 0</div>
+            <div class="score" id="player-score">Player: 0</div>
         </div>
     </div>
     <div id="game-state">
@@ -35,18 +39,7 @@
         </div>
     </div>
 <!--    <script type="module" src="GameManager.js"></script>-->
-<script>
-    /*get target and deck position*/
-    const dealerCard1 = document.getElementById('dealer-card-1');
-    const deck = document.getElementById('deck');
-    const deckRect = deck.getBoundingClientRect();
-    const targetRect = dealerCard1.getBoundingClientRect();
-    const dx = (targetRect.left + targetRect.width / 2) - (deckRect.left + deckRect.width / 2);
-    const dy = (targetRect.top + targetRect.height / 2) - (deckRect.top + deckRect.height / 2);
 
-    /*execute animation*/
-    deck.style.transition = 'transform 0.8s ease';
-    deck.style.transform = `translate(${dx}px, ${dy}px) rotate(90deg)`;
-</script>
+
 </body>
 </html>
