@@ -34,4 +34,3 @@ class Card{
         return `${this.value}${this.suit}`;
     }
 }
-
