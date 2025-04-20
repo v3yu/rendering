@@ -4,20 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playing Card Widget</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/Layout/Layout.css">
+    <link rel="stylesheet" href="css/Style/Style.css">
 </head>
 <body>
+    <div class="page-container">
+        <header>
+          <h1>Blackjack</h1>
+        </header>
     <div id ="game-board">
-        <div id="dealer-hand" class="hand">
+        <div class = "deck" id = "deck"></div>
+        <div id = "hand-area">
+            <div id="dealer-hand" class="hand">
+                <div class="card" id="dealer-card-1"></div>
+                <div class="card" id="dealer-card-2"></div>
+
+            </div>
+            <div id="player-hand" class="hand">
+                <div class="card" id="player-card-1"></div>
+                <div class="card" id="player-card-2"></div>
+            </div>
+        </div>
+        <div class = "score-area">
             <div class="score" id="dealer-score">Dealer: 0</div>
-            <div class="card" id="dealer-card-1"></div>
-            <div class="card" id="dealer-card-2"></div>
-        </div>
-        <div id="player-hand" class="hand">
             <div class="score" id="player-score">Player: 0</div>
-            <div class="card" id="player-card-1"></div>
-            <div class="card" id="player-card-2"></div>
         </div>
+    </div>
     </div>
     <div id="game-state">
         <button id="deal-button">Deal!</button>
@@ -28,6 +40,6 @@
             <p>Balance: <span id="balance-amount">$100</span></p>
         </div>
     </div>
-    <script type="module" src="GameManager.js"></script>
+<!--    <script type="module" src="GameManager.js"></script>-->
 </body>
 </html>
