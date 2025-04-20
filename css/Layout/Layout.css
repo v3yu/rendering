@@ -1,14 +1,18 @@
-#game-board {
+.page-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  #game-board {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 20px;
     padding: 20px;
-    width: 80%;
-    margin: 20px auto;
-
-}
+    margin-top: 20px;
+  }
+  
 
 #game-state {
     margin-top: 20px;
