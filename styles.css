@@ -36,12 +36,18 @@
     position: absolute;
     left: 65%;
     transform: translateX(-50%);
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
-    background-color: #fff;
     padding: 5px 10px;
-    border: 1px solid #000;
+    border: 2px solid rgb(0, 0, 0);
     border-radius: 5px;
+}
+
+#dealer-score{
+    background-color: rgb(237, 73, 73);
+}
+#player-score{
+    background-color: rgb(75, 219, 106);
 }
 
 .card {
