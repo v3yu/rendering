@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/Style.css">
     <link rel="stylesheet" href="css/card.css">
 </head>
+    
 <body>
     <div class="page-container">
         <header>
@@ -20,6 +21,7 @@
         <div class = "deck" id = "deck"></div>
         <div id = "hand-area">
             <div id="dealer-hand" class="hand">
+                <div class="score" id="dealer-score">🏦 Dealer: 0</div>
                 <!--example of faceup card-->
                 <div class="card" id="dealer-card-1">
                     <div class="suit">
@@ -35,13 +37,10 @@
                 </div>
             </div>
             <div id="player-hand" class="hand">
+                <div class="score" id="player-score">👤 Player: 0</div>
                 <div class="card" id="player-card-1"></div>
                 <div class="card" id="player-card-2"></div>
             </div>
-        </div>
-        <div class = "score-area">
-            <div class="score" id="dealer-score">Dealer: 0</div>
-            <div class="score" id="player-score">Player: 0</div>
         </div>
     </div>
     </div>
@@ -55,5 +54,7 @@
         </div>
     </div>
 <!--    <script type="module" src="GameManager.js"></script>-->
+
+
 </body>
 </html>

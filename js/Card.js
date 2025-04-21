@@ -1,4 +1,4 @@
-class Card{
+ class Card{
     static values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
     static suits = ["♥", "♠", "♣", "♦"];
 
@@ -34,3 +34,4 @@ class Card{
         return `${this.value}${this.suit}`;
     }
 }
+export default class Card;

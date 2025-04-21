@@ -76,9 +76,17 @@
     justify-content: center;
     gap: 20px;
     padding: 20px;
-    width: 80%;
+    width: 100%;
     margin: 20px auto;
 }
+
+.hand-compresser{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
 #hand-area{
     flex:3;
     display: flex;
@@ -98,17 +106,23 @@
 
 }
 
-.score {
+.hand .score {
+    position: absolute;
+    left: 65%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
     padding: 5px 10px;
-    margin: 50px;
-
-}
-.score-area {
-    display: flex;
-    flex-direction: column;
-
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
 }
 
+#dealer-score{
+    background-color: rgb(237, 73, 73);
+}
+#player-score{
+    background-color: rgb(75, 219, 106);
+}
 
 .card {
     width: 100px;
