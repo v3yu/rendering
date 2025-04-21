@@ -8,8 +8,6 @@
     font-weight: bold;
 }
 
-
-
 .score {
     transform: translateX(-50%);
     font-size: 16px;
@@ -17,16 +15,6 @@
     background-color: #fff;
     border: 1px solid #000;
     border-radius: 5px;
-}
-
-
-.card {
-    border: 1px solid #000;
-    background-color: #ffffff;
-    border-radius: 5px;
-    font-size: 24px;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
 }
 
 #player-balance {

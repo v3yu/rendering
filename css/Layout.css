@@ -54,14 +54,6 @@
 
 }
 
-
-.card {
-    width: 100px;
-    height: 140px;
-    display: flex;
-    flex-direction: column;
-}
-
 #player-balance {
     float:right;
     margin-top: 20px;

@@ -6,7 +6,7 @@
     <title>Playing Card Widget</title>
     <link rel="stylesheet" href="css/Layout.css">
     <link rel="stylesheet" href="css/Style.css">
-    <link rel="stylesheet" href="card.css">
+    <link rel="stylesheet" href="css/card.css">
 </head>
 <body>
     <div class="page-container">
@@ -20,9 +20,19 @@
         <div class = "deck" id = "deck"></div>
         <div id = "hand-area">
             <div id="dealer-hand" class="hand">
-                <div class="card" id="dealer-card-1"></div>
-                <div class="card" id="dealer-card-2"></div>
-
+                <!--example of faceup card-->
+                <div class="card" id="dealer-card-1">
+                    <div class="suit">
+                        ♣
+                    </div>
+                    <div class="value">
+                        A
+                    </div>
+                </div>
+                <!--example of facedown card-->
+                <div class="card" id="dealer-card-2">
+                    <div class="back" style="backface-visibility:visible;"></div>
+                </div>
             </div>
             <div id="player-hand" class="hand">
                 <div class="card" id="player-card-1"></div>
