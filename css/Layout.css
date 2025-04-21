@@ -15,6 +15,9 @@
 
 #game-state {
     margin-top: 20px;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -23,6 +26,33 @@
     padding: 20px;
     width: 80%;
 }
+
+#game-state-2 {
+    margin-top: -50px;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    width: 80%;
+}
+
+#deal-button {
+    padding: 10px 20px;
+}
+
+#hit-button {
+    padding: 10px 20px;
+}
+
+#stand-button {
+    padding: 10px 20px;
+}
+
 #hand-area{
     flex:3;
     display: flex;
@@ -61,12 +91,21 @@
 
 #player-balance {
     float:right;
-    margin-top: 20px;
+    width: 15%;
 }
 
 #player-balance p {
     margin: 0;
-    padding: 10px;
+    padding: 5px;
+}
+
+#wager-input {
+    margin-left: -21px;
+    width: 7%;
+}
+
+#wager-dollar {
+    padding: 1px 0px 1px 1px;
 }
 
 .deck{
