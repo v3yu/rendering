@@ -20,7 +20,7 @@ class GameManager {
 
         this.deck.reset();
         this.deck.shuffle();
-        
+
         // Use this for player bets
         const betInput = document.getElementById("bet-input");
         if (betInput) {
@@ -39,6 +39,46 @@ class GameManager {
         this.playerHand.addCard(this.deck.deal(1)[0]);
         this.dealerHand.addCard(this.deck.deal(1)[0]);
 
+        // Render the cards in the game area
+        const gameArea = document.getElementById('hand-area');
+        gameArea.classList.add('hand-area');
+        gameArea.innerHTML = ''; // Clear previous cards
+
+        const dealerSection = document.createElement('div');
+        dealerSection.classList.add('section');
+        dealerSection.id = 'dealer-section';
+        // Create dealer hand section
+        const dealerHandDiv = document.createElement('div');
+        dealerHandDiv.classList.add('hand');
+        dealerHandDiv.id = 'dealer-hand';
+        this.dealerHand.cards.forEach(card => {
+            dealerHandDiv.appendChild(card.render());
+        });
+
+        //Create dealer score section
+        const dealerScore = document.createElement('div');
+        dealerScore.classList.add('score');
+        dealerScore.id = 'dealer-score';
+        dealerScore.textContent = `🏦 Dealer: ${this.dealerHand.value}`;
+        dealerHandDiv.appendChild(dealerScore);
+
+        // Create player hand section
+        const playerHandDiv = document.createElement('div');
+        playerHandDiv.classList.add('hand');
+        playerHandDiv.id = 'player-hand';
+        this.playerHand.cards.forEach(card => {
+            playerHandDiv.appendChild(card.render());
+        });
+        // Create player score section
+        const playerScore = document.createElement('div');
+        playerScore.classList.add('score');
+        playerScore.id = 'player-score';
+        playerScore.textContent = `👤 Player: ${this.playerHand.value}`
+        playerHandDiv.appendChild(playerScore);
+
+        // Add hands to the game area
+        gameArea.appendChild(dealerHandDiv);
+        gameArea.appendChild(playerHandDiv);
         /* Use the following when rendering 
         this.playerHand.render("#phand");
         this.dealerHand.render("#dhand");
@@ -51,12 +91,23 @@ class GameManager {
         if (this.state != "playerTurn") return;
 
         this.playerHand.hit(this.deck);
-        // this.playerHand.render("#phand");
+
+        //re-render the player hand
+        const playerHandDiv = document.getElementById('player-hand');
+        playerHandDiv.innerHTML = ''; // Clear previous cards
+        this.playerHand.cards.forEach(card => {
+            playerHandDiv.appendChild(card.render());
+        });
+        //re-render the player score (currently broken)
+        const playerScore = document.getElementById('player-score');
+        playerScore.textContent = `👤 Player: ${this.playerHand.value}`;
+        playerHandDiv.appendChild(playerScore);
 
         if (this.playerHand.value > 21) {
             this.state = "end";
             this.updateMessage("Busted! Dealer wins.");
         }
+
     }
 
     async playerStand() {
@@ -90,10 +141,6 @@ class GameManager {
     resetRound() {
         this.playerHand.clear();
         this.dealerHand.clear();
-
-        // removes visuals from html, feel free to change
-        document.querySelector("#phand").innerHTML = ""; 
-        document.querySelector("#dhand").innerHTML = "";
 
         this.state = "betting";
         this.updateMessage("New round. Place your bet.");

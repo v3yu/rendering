@@ -18,6 +18,7 @@ class Hand {
 
     addCard(card) {
         this.cards.push(card);
+        card.render();
         this.value = this.calculateValue();
     }
 

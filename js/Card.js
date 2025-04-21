@@ -3,10 +3,10 @@
     static suits = ["♥", "♠", "♣", "♦"];
 
     constructor(suit, value, faceUp = false) {
-        if(!this.values.includes(value)){
+        if(!Card.values.includes(value)){
             throw "Invalid card value!";
         }
-        if(!this.suits.includes(suit)){
+        if(!Card.suits.includes(suit)){
             throw "Invalid card suit!";
         }
         this.suit = suit;

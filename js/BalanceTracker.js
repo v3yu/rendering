@@ -31,4 +31,4 @@ class Balance_Tracker {
     }
 
 }
-
+export default Balance_Tracker;
