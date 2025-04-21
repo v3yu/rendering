@@ -103,7 +103,7 @@ class GameManager {
         const playerScore = document.getElementById('player-score');
         playerScore.textContent = `👤 Player: ${this.playerHand.value}`;
         playerHandDiv.appendChild(playerScore);
-
+        this.checkWinner();
         if (this.playerHand.value > 21) {
             this.state = "end";
             this.updateMessage("Busted! Dealer wins.");
@@ -129,28 +129,37 @@ class GameManager {
         await this.dealerHand.autoPlay(this.deck, "#dealer-hand");
         // Check the winner
         this.checkWinner();
-
         console.log("dealer's cards:" + this.dealerHand.cards.map(card => card.show()));
     }
 
     checkWinner() {
         const playerVal = this.playerHand.value;
         const dealerVal = this.dealerHand.value;
-
+    
         let result;
-
-        if (dealerVal > 21 || playerVal > dealerVal) {
-            this.balanceTracker.add(this.currentBet * 2); // 2x rewards
+    
+        if (playerVal > 21) {
+            // Player busts
+            result = "Busted! Dealer wins.";
+        } else if (dealerVal > 21) {
+            // Dealer busts
+            this.balanceTracker.add(this.currentBet * 2); // Player wins 2x the bet
+            result = "Dealer busted! You win!";
+        } else if (playerVal > dealerVal) {
+            // Player has a higher value
+            this.balanceTracker.add(this.currentBet * 2); // Player wins 2x the bet
             result = "You win!";
         } else if (playerVal === dealerVal) {
-            this.balanceTracker.add(this.currentBet); // tie
+            // Tie
+            this.balanceTracker.add(this.currentBet); // Player gets their bet back
             result = "Push!";
         } else {
-            result = "Dealer wins."; // lose
+            // Dealer has a higher value
+            result = "Dealer wins.";
         }
-
-        this.state = "end";
-        this.updateMessage(result);
+    
+        this.state = "end"; // Set the game state to end
+        this.updateMessage(result); // Display the result message
     }
 
     resetRound() {

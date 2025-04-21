@@ -10,6 +10,11 @@ class Hand {
 
     render(containerSelector) {
         const container = document.querySelector(containerSelector);
+        if (!container) {
+            console.error(`Container not found for selector: ${containerSelector}`);
+            return;
+        }
+        console.log(`Rendering to container: ${containerSelector}`);
         container.innerHTML = '';
         for (const card of this.cards) {
             container.appendChild(card.render());
@@ -20,6 +25,7 @@ class Hand {
         this.cards.push(card);
         card.render();
         this.value = this.calculateValue();
+        console.log(`Hand value: ${this.value}, Cards: ${this.cards.map(card => card.value).join(", ")}`);
     }
 
     clear() {
@@ -30,30 +36,30 @@ class Hand {
     calculateValue() {
         let total = 0;
         let aces = 0;
-
+    
+        // Loop through all cards in the hand
         for (const card of this.cards) {
-            const rank = card.rank;
-            if (rank === 'A') {
-                aces++;
-                total += 11;
-            } else if (["K", "Q", "J"].includes(rank)) {
-                total += 10;
+            if (card.value === "A") {
+                aces += 1; // Count the number of aces
+                total += 11; // Initially count each ace as 11
+            } else if (["K", "Q", "J"].includes(card.value)) {
+                total += 10; // Face cards are worth 10
             } else {
-                total += parseInt(rank);
+                total += parseInt(card.value); // Number cards are worth their face value
             }
         }
-
-        // Handle ace logic (11 or 1)
+    
+        // Adjust for aces if the total exceeds 21
         while (total > 21 && aces > 0) {
-            total -= 10;
-            aces--;
+            total -= 10; // Count an ace as 1 instead of 11
+            aces -= 1;
         }
-
+    
         return total;
     }
 
     async autoPlay(deck, renderSelector) {
-        const container = document.getElementsByClassName(renderSelector); // Use the provided selector
+        const container = document.querySelector(renderSelector);
         if (!container) {
             console.error(`Container not found for selector: ${renderSelector}`);
             return;
@@ -62,7 +68,6 @@ class Hand {
         while (this.calculateValue() < 17) {
             const card = deck.deal(1)[0];
             this.addCard(card);
-    
             // Re-render the dealer's hand
             container.innerHTML = ''; // Clear previous cards
             this.cards.forEach(card => {
