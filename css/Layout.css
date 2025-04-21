@@ -1,9 +1,9 @@
 .page-container {
     width: 80%;
     margin: 0 auto;
-  }
-  
-  #game-board {
+}
+
+#game-board {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -12,7 +12,6 @@
     padding: 20px;
     margin-top: 20px;
   }
-  
 
 #game-state {
     margin-top: 20px;
@@ -30,6 +29,7 @@
     flex-direction: column;
     gap: 20px;
 }
+
 #deck-area{
     flex:1.5;
 }
@@ -42,6 +42,11 @@
     align-items: center;
 
 }
+
+
+
+
+
 
 .score {
     padding: 5px 10px;
@@ -71,4 +76,3 @@
     align-items: center;
     margin: auto;
 }
-
