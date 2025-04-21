@@ -19,9 +19,91 @@ body::before {
 #game-state {
     font-size: 18px;
     font-weight: bold;
+
+    font-family: Arial, sans-serif;
+    background-color: #e0e0e0;
 }
 
+#game-state-2 {
+    font-size: 18px;
+    font-weight: bold;
 
+    font-family: Arial, sans-serif;
+    font-size: 2rem;
+    background-color: #e0e0e0;
+}
+
+#deal-button {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    border: solid 2px black;
+    border-radius: 5px;
+    cursor: pointer;
+
+    transition-duration: 0.2s;
+    transition-property: box-shadow, transform;
+}
+
+#deal-button:hover {
+    background-color: #45a049;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
+#deal-button:active {
+    background-color: #45a049;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#hit-button {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    border: solid 2px black;
+    border-radius: 5px;
+    cursor: pointer;
+
+    transition-duration: 0.2s;
+    transition-property: box-shadow, transform;
+}
+
+#hit-button:hover {
+    background-color: #45a049;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
+#hit-button:active {
+    background-color: #45a049;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#stand-button {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    border: solid 2px black;
+    border-radius: 5px;
+    cursor: pointer;
+
+    transition-duration: 0.2s;
+    transition-property: box-shadow, transform;
+}
+
+#stand-button:hover {
+    background-color: #45a049;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
+#stand-button:active {
+    background-color: #45a049;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
 
 .score {
     transform: translateX(-50%);
@@ -46,16 +128,34 @@ body::before {
 }
 
 #player-balance {
-    text-align: center;
-    font-size: 18px;
+    font-size: 2rem;
     font-weight: bold;
     color: #333;
 }
 
 #player-balance p {
     background-color: #f9f9f9;
-    border: 1px solid #ccc;
+    border: 2px solid black;
     border-radius: 5px;
+    color: black;
+}
+
+#wager-input {
+    border-radius: 0px 5px 5px 0px;
+    border-left: 0;
+    border-color: black;
+    font-size: 2rem;
+    font-weight: bold;
+    outline: 0;
+}
+
+#wager-dollar {
+    font-size: 2rem;
+    background-color: white;
+    border: solid;
+    border-width: 2px 0px 2px 2px;
+    border-radius: 5px 0px 0px 5px;
+    border-right: 0;
 }
 
 .deck{
