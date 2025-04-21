@@ -79,6 +79,14 @@
     width: 80%;
     margin: 20px auto;
 }
+
+.hand-compresser{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
 #hand-area{
     flex:3;
     display: flex;
