@@ -1,4 +1,6 @@
-
+:root {
+    --button-color:#45a049;
+}
 #game-board {
     background-color: #e0e0e0;
 }
@@ -78,6 +80,77 @@
     color: #333;
 }
 
+#deal-button {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    border: solid 2px black;
+    border-radius: 5px;
+    cursor: pointer;
+
+    transition-duration: 0.2s;
+    transition-property: box-shadow, transform;
+}
+
+#deal-button:hover {
+    background-color: var(--button-color);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
+#deal-button:active {
+    background-color: var(--button-color);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#hit-button {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: var(--button-color);
+    color: white;
+    border: solid 2px black;
+    border-radius: 5px;
+    cursor: pointer;
+
+    transition-duration: 0.2s;
+    transition-property: box-shadow, transform;
+}
+
+#hit-button:hover {
+    background-color: var(--button-color);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
+#hit-button:active {
+    background-color: var(--button-color);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#stand-button {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: var(--button-color);
+    color: white;
+    border: solid 2px black;
+    border-radius: 5px;
+    cursor: pointer;
+
+    transition-duration: 0.2s;
+    transition-property: box-shadow, transform;
+}
+
+#stand-button:hover {
+    background-color: var(--button-color);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
+#stand-button:active {
+    background-color:var(--button-color);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
 
 
 #player-balance p {
