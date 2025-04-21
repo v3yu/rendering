@@ -34,8 +34,9 @@ class GameManager {
 
         // Starting hands
         this.playerHand.addCard(this.deck.deal(1)[0]);
-        this.dealerHand.addCard(this.deck.deal(1)[0]);
-
+        const dealerSecondCard = this.deck.deal(1)[0];
+        dealerSecondCard.faceUp = false; // Set the dealer's second card face-down
+        this.dealerHand.addCard(dealerSecondCard);
         this.playerHand.addCard(this.deck.deal(1)[0]);
         this.dealerHand.addCard(this.deck.deal(1)[0]);
 
@@ -98,7 +99,7 @@ class GameManager {
         this.playerHand.cards.forEach(card => {
             playerHandDiv.appendChild(card.render());
         });
-        //re-render the player score (currently broken)
+        //re-render the player score
         const playerScore = document.getElementById('player-score');
         playerScore.textContent = `👤 Player: ${this.playerHand.value}`;
         playerHandDiv.appendChild(playerScore);
@@ -112,10 +113,24 @@ class GameManager {
 
     async playerStand() {
         if (this.state !== "playerTurn") return;
-
+    
         this.state = "dealerTurn";
-        await this.dealerHand.autoPlay(this.deck, "#dhand");
+    
+        // Flip the dealer's second card
+        this.dealerHand.cards[0].faceUp = true;
+    
+        const dealerHandDiv = document.getElementById('dealer-hand');
+        dealerHandDiv.innerHTML = ''; // Clear previous cards
+        this.dealerHand.cards.forEach(card => {
+            dealerHandDiv.appendChild(card.render());
+        });
+    
+        // Dealer's turn to play
+        await this.dealerHand.autoPlay(this.deck, "#dealer-hand");
+        // Check the winner
         this.checkWinner();
+
+        console.log("dealer's cards:" + this.dealerHand.cards.map(card => card.show()));
     }
 
     checkWinner() {

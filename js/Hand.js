@@ -53,10 +53,21 @@ class Hand {
     }
 
     async autoPlay(deck, renderSelector) {
-        while (this.value < 17) {
-            const newCard = deck.deal(1)[0];
-            this.addCard(newCard);
-            if (renderSelector) this.render(renderSelector);
+        const container = document.getElementsByClassName(renderSelector); // Use the provided selector
+        if (!container) {
+            console.error(`Container not found for selector: ${renderSelector}`);
+            return;
+        }
+    
+        while (this.calculateValue() < 17) {
+            const card = deck.deal(1)[0];
+            this.addCard(card);
+    
+            // Re-render the dealer's hand
+            container.innerHTML = ''; // Clear previous cards
+            this.cards.forEach(card => {
+                container.appendChild(card.render());
+            });
             await new Promise(resolve => setTimeout(resolve, 600));
         }
     }
