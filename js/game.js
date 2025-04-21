@@ -67,7 +67,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   standBtn.addEventListener("click", async () => {
-    await gm.playerStand();
+    if (gm.state !== "playerTurn") return;
+    gm.state = "dealerTurn";
+
+    // dealer must hit until 17+
+    while (gm.dealerHand.value < 17) {
+      gm.dealerHand.addCard(gm.deck.deal(1)[0]);
+      refreshUI();
+      await new Promise(r => setTimeout(r, 600));
+    }
+
+    // determine winner & update balance/message
+    gm.checkWinner();
     refreshUI();
   });
 
