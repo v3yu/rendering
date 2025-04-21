@@ -6,6 +6,10 @@
     <title>Playing Card Widget</title>
     <link rel="stylesheet" href="css/Layout/Layout.css">
     <link rel="stylesheet" href="css/Style/Style.css">
+    <!--fonts-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
     
 <body>
@@ -29,12 +33,15 @@
     </div>
     </div>
     <div id="game-state">
-        <button id="deal-button">Deal!</button>
-        <button id="hit-button">Hit</button>
-        <button id="stand-button">Stand</button><p>Wager:</p>
-        <input type="number" id="wager-input" value="0" min="0" step="1">
+        <button id="deal-button"><i class="fa-solid fa-handshake"></i>DEAL!</button>
+        <button id="hit-button"><i class="fa-solid fa-hand"></i>HIT</button>
+        <button id="stand-button"><i class="fa-solid fa-briefcase"></i>STAND</button>
+    </div>
+    <div id="game-state-2">
+        <p>WAGER</p><p id="wager-dollar">$</p><input type="number" id="wager-input" value="0" min="0" step="1">
+        <p>BALANCE</p>
         <div id="player-balance">
-            <p>Balance: <span id="balance-amount">$100</span></p>
+            <p><span id="balance-amount">$0</span></p>
         </div>
     </div>
 <!--    <script type="module" src="GameManager.js"></script>-->
