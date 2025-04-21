@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="css/Style/Style.css">
 </head>
 <body>
+    <div class="page-container">
+        <header>
+          <h1>Blackjack</h1>
+        </header>
     <div id ="game-board">
-        <div id="deck-area">
-            <div class = "deck" id = "deck"></div>
-        </div>
-
+        <div class = "deck" id = "deck"></div>
         <div id = "hand-area">
             <div id="dealer-hand" class="hand">
                 <div class="card" id="dealer-card-1">Dealer1</div>
@@ -28,6 +29,7 @@
             <div class="score" id="dealer-score">Dealer: 0</div>
             <div class="score" id="player-score">Player: 0</div>
         </div>
+    </div>
     </div>
     <div id="game-state">
         <button id="deal-button">Deal!</button>
