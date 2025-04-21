@@ -1,6 +1,6 @@
-import Card from 'js/card.js';
-import Deck from 'js/js';
-import GameManager from 'js/GameManager.js';
+import Card from './Card.js';
+import Deck from './Deck.js';
+import GameManager from './GameManager.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const deck = new Deck();
@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const standButton = document.getElementById('stand-button');
 
     dealButton.addEventListener('click', () => {
-        blackjackGame.startGame();
-    });
+        blackjackGame.startNewRound();
+    })
 
     hitButton.addEventListener('click', () => {
         blackjackGame.playerHit();
